@@ -6,6 +6,9 @@ from langchain.chains import LLMChain
 # Initialize the ChatGPT model
 chat = ChatOpenAI(model="gpt-4", temperature=0.5)
 
+### OpenAI Secret Key
+my_secret_key = st.secrets['MyOpenAIKey']
+
 # Prompt templates for each scenario
 positive_experience_template = PromptTemplate.from_template(
     "The user had a positive experience. Respond professionally by thanking them for their feedback and for choosing our airline."
