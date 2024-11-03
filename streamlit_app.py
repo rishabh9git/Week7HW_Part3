@@ -3,11 +3,8 @@ from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
 
-# Initialize the ChatGPT model
-chat = ChatOpenAI(model="gpt-4", temperature=0.5)
-
-### OpenAI Secret Key
-my_secret_key = st.secrets['MyOpenAIKey']
+# Initialize the Chat model (substitute "gpt-4-mini" with "gpt-3.5-turbo" or any smaller available model)
+chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5)
 
 # Prompt templates for each scenario
 positive_experience_template = PromptTemplate.from_template(
@@ -37,6 +34,7 @@ def determine_experience_chain(user_input):
         return None
 
 # Streamlit app setup
+st.set_page_config(page_title="Airline Experience Feedback")
 st.title("Airline Experience Feedback")
 
 # User input section
