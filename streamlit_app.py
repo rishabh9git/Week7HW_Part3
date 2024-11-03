@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
-from langchain.chains import RoutingChain, LLMChain
+from langchain.chains import LLMChain
 
 # Initialize the ChatGPT model
 chat = ChatOpenAI(model="gpt-4", temperature=0.5)
@@ -28,8 +28,10 @@ def determine_experience_chain(user_input):
         return negative_airline_fault_chain
     elif "weather" in user_input or "uncontrollable" in user_input:
         return negative_beyond_control_chain
+    elif "great" in user_input or "good" in user_input:
+        return positive_chain
     else:
-        return positive_chain if "great" in user_input or "good" in user_input else None
+        return None
 
 # Streamlit app setup
 st.title("Airline Experience Feedback")
@@ -46,4 +48,3 @@ if st.button("Submit"):
         st.write("Response:", response)
     else:
         st.write("Thank you for your feedback! We appreciate you sharing your experience with us.")
-
