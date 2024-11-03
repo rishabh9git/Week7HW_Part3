@@ -1,5 +1,5 @@
 streamlit
-langchain.prompts import PromptTemplate
+langchain.prompts
 langchain.chat_models 
 OpenAI
 langchain.chains
