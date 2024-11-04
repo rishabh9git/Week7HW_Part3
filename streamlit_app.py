@@ -29,7 +29,7 @@ negative_beyond_control_chain = LLMChain(llm=chat, prompt=negative_beyond_contro
 
 # Routing logic
 def determine_experience_chain(user_input):
-    if "lost luggage" in user_input or "airline" in user_input or "bad food" in user_input or "bad service" in user_input:
+    if "lost" in user_input or "luggage" in user_input or "airline" in user_input or "bad food" in user_input or "bad service" in user_input:
         return negative_airline_fault_chain
     elif "weather" in user_input or "uncontrollable" in user_input or "security delay" in user_input:
         return negative_beyond_control_chain
