@@ -9,7 +9,7 @@ openai_api_key = st.secrets.get("MyOpenAIKey")
 my_secret_key = st.secrets['MyOpenAIKey']
 
 # Initialize the Chat model with the API key
-chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5, openai_api_key=openai_api_key)
+chat = ChatOpenAI(model="gpt-4o-mini", temperature=0.8, openai_api_key=openai_api_key)
 
 # Prompt templates for each scenario
 positive_experience_template = PromptTemplate.from_template(
