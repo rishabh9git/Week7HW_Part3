@@ -2,9 +2,14 @@ import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
+import os
 
-# Initialize the Chat model (substitute "gpt-4-mini" with "gpt-3.5-turbo" or any smaller available model)
-chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5)
+# Set the OpenAI API key if using Streamlit secrets
+openai_api_key = st.secrets.get("MyOpenAIKey")
+my_secret_key = st.secrets['MyOpenAIKey']
+
+# Initialize the Chat model with the API key
+chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5, openai_api_key=openai_api_key)
 
 # Prompt templates for each scenario
 positive_experience_template = PromptTemplate.from_template(
